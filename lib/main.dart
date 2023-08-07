@@ -3,10 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fss_ai_app/data/repository/board_repository_impl.dart';
 import 'package:fss_ai_app/data/source/remote/board_api.dart';
+import 'package:fss_ai_app/demo/HomeScreen3.dart';
 import 'package:fss_ai_app/lib_color_schemes.g.dart';
-import 'package:fss_ai_app/presentation/home_screen.dart';
 import 'package:fss_ai_app/presentation/home_view_model.dart';
-import 'package:fss_ai_app/presentation/return_pvc.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
@@ -40,8 +39,12 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       initialRoute: "/",
       getPages: [
-        GetPage(name: "/", page: () => HomeScreen()),
-        GetPage(name: "/drivers", page: () => ReturnPvc()),
+        // # DEMO
+        GetPage(name: "/", page: () => HomeScreen3()),
+        // # API Test
+        //GetPage(name: "/", page: () => HomeScreen()),
+        //GetPage(name: "/drivers", page: () => ReturnPvc()),
+        // # GetX Test
         //GetPage(name: "/map", page: () => PageMapApp()),
         //GetPage(name: "/para/:ID4", page: () => PageParaApp()),
       ],

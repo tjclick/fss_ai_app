@@ -6,6 +6,7 @@ import 'package:fss_ai_app/data/source/remote/board_api.dart';
 import 'package:fss_ai_app/demo/CompanyScreen3.dart';
 import 'package:fss_ai_app/demo/DailyScreen3.dart';
 import 'package:fss_ai_app/demo/HomeScreen3.dart';
+import 'package:fss_ai_app/demo/HomeScreen3Sub1.dart';
 import 'package:fss_ai_app/demo/VolumeScreen3.dart';
 import 'package:fss_ai_app/presentation/home_view_model.dart';
 import 'package:get/get.dart';
@@ -40,7 +41,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         //colorScheme: darkColorScheme,
         scaffoldBackgroundColor: Color(0xff292929),
-        iconTheme: IconThemeData(color: Colors.white, size: 30,),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+          size: 30,
+        ),
       ),
       themeMode: ThemeMode.system,
       initialRoute: "/",
@@ -51,6 +55,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/DailyScreen3", page: () => DailyScreen3()),
         GetPage(name: "/VolumeScreen3", page: () => VolumeScreen3()),
         GetPage(name: "/HomeScreen3", page: () => HomeScreen3()),
+        GetPage(name: "/HomeScreen3Sub1", page: () => HomeScreen3Sub1()),
 
         // # API Test
         //GetPage(name: "/", page: () => HomeScreen()),

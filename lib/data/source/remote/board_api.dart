@@ -5,7 +5,7 @@ class BoardApi {
 
   BoardApi({http.Client? client}) : _client = (client ?? http.Client());
 
-  static const baseUrl = 'http://10.21.1.61:8000/api';
+  static const baseUrl = 'https://www.fssai.kr/api';
   // static const HUserID = 'VEVTVERSVlI=';
   // static const HUserKey = '20230110001003.74819453677458031764608059833657472235';
 

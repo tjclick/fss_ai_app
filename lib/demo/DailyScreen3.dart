@@ -8,69 +8,73 @@ class DailyScreen3 extends StatefulWidget {
 
 class _DailyScreenState extends State<DailyScreen3> {
   int _selectedIndex = 2;
+  bool _isExpanded1 = true;
   
-  static List<Widget> _widgetOptions = <Widget>[
-    _buildImage('home'),
-    _buildImage('company'),
-    _buildImage('daily'),
-    _buildImage('volume'),
-  ];
-
-
-  static Widget _buildImage(String imagePath) {
-    return Container(
-      // child: Image.asset(imagePath, fit: BoxFit.fill),
-      child: Column(
-          children: [
-                GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 2, "NEXT_PAGE": "/DailyScreen3"});},
-                  child: Image.asset('assets/images/demo_${imagePath}_gr1.png', fit: BoxFit.fill),
-                ),
-                GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 2, "NEXT_PAGE": "/DailyScreen3"});},
-                  child: Image.asset('assets/images/demo_${imagePath}_gr2.png', fit: BoxFit.fill),
-                ),
-                GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 2, "NEXT_PAGE": "/DailyScreen3"});},
-                  child: Image.asset('assets/images/demo_${imagePath}_gr3.png', fit: BoxFit.fill),
-                ),
-
-          ],
-      ),
-    );
-  }
-
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+      if (index == 0) Get.toNamed("/HomeScreen3" );
+      if (index == 1) Get.toNamed("/CompanyScreen3" );
+      if (index == 2) Get.toNamed("/DailyScreen3" );
+      if (index == 3) Get.toNamed("/VolumeScreen3" );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('GOOD.AI', style: TextStyle(color: Color(0xFFEDEDED),),),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            color: Color(0xFFEDEDED),
-            onPressed: () {
-              // Handle search action
-            },
-          ),
-        ],
-        backgroundColor: Color(0xFF292929),
-      ),
+
       body: CustomScrollView(
         slivers: <Widget>[
           SliverList(
             delegate: SliverChildListDelegate(
               [
+                SizedBox(height: 20,),
                 Container(
-                  child: _widgetOptions.elementAt(_selectedIndex),
+                // child: Image.asset(imagePath, fit: BoxFit.fill),
+                  child: Column(
+                      children: [
+                            GestureDetector(
+                              onTap: () { Get.toNamed("/VolumeScreen3" );},
+                              child: Image.asset('assets/images/demo_daily_gr1.png', fit: BoxFit.fill),
+                            ),
+                            GestureDetector(
+                              onTap: () { Get.toNamed("/VolumeScreen3" );},
+                              child: Image.asset('assets/images/demo_daily_gr2.png', fit: BoxFit.fill),
+                            ),
+
+                      ],
                   ),
-                // 추가적인 위젯들을 여기에 추가할 수 있습니다.
+                ),
+
+                // ExpandTile ============================================================
+                
+                Container(
+                  // ExpansionTile의 배경색 지정
+                  //color: Color.fromARGB(255, 29, 29, 29), // 원하는 색상으로 변경 가능
+                  child: ExpansionTile(
+                    title: Text(
+                      '밸류체인 678901',
+                      style: TextStyle(
+                        color: Color(0xffededed),
+                        fontWeight: FontWeight.bold, // bold 스타일 적용
+                        fontSize: 14, // 글꼴 크기 14
+                      ),
+                    ),
+                    onExpansionChanged: (expanded) {
+                      setState(() {
+                        _isExpanded1 = expanded;
+                      });
+                    },
+                    children: [
+                      _isExpanded1
+                          ? Container(
+                              //color: Colors.blue,
+                              child: Image.asset('assets/images/demo_daily_gr2.png',
+                                  fit: BoxFit.fill), // 이미지 경로를 적절히 수정해주세요.
+                            )
+                          : SizedBox.shrink(), // 내용이 닫혔을 때는 빈 컨테이너로 처리
+                    ],
+                  ),
+                ),
+
               ],
             ),
           ),

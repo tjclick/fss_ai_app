@@ -1,19 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeScreen3 extends StatefulWidget {
+class CompanyScreen3 extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _CompanyScreenState createState() => _CompanyScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen3> {
-  int _selectedIndex = 0;
+class _CompanyScreenState extends State<CompanyScreen3> {
+  int _selectedIndex = 1;
   
+  static List<Widget> _widgetOptions = <Widget>[
+    _buildImage('home'),
+    _buildImage('company'),
+    _buildImage('daily'),
+    _buildImage('volume'),
+  ];
+
+
+  static Widget _buildImage(String imagePath) {
+    return Container(
+      // child: Image.asset(imagePath, fit: BoxFit.fill),
+      child: Column(
+          children: [
+                GestureDetector(
+                  onTap: () { Get.toNamed("/DailyScreen3" );},
+                  child: Image.asset('assets/images/demo_${imagePath}_gr1.png', fit: BoxFit.fill),
+                ),
+                GestureDetector(
+                  onTap: () { Get.toNamed("/DailyScreen3" );},
+                  child: Image.asset('assets/images/demo_${imagePath}_gr2.png', fit: BoxFit.fill),
+                ),
+                GestureDetector(
+                  onTap: () { Get.toNamed("/DailyScreen3" );},
+                  child: Image.asset('assets/images/demo_${imagePath}_gr3.png', fit: BoxFit.fill),
+                ),
+
+          ],
+      ),
+    );
+  }
+
   void _onItemTapped(int index) {
-      if (index == 0) Get.toNamed("/HomeScreen3" );
-      if (index == 1) Get.toNamed("/CompanyScreen3" );
-      if (index == 2) Get.toNamed("/DailyScreen3" );
-      if (index == 3) Get.toNamed("/VolumeScreen3" );
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
@@ -37,26 +67,10 @@ class _HomeScreenState extends State<HomeScreen3> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                SizedBox(height: 20,),
                 Container(
-                // child: Image.asset(imagePath, fit: BoxFit.fill),
-                  child: Column(
-                      children: [
-                            GestureDetector(
-                              onTap: () { Get.toNamed("/CompanyScreen3" );},
-                              child: Image.asset('assets/images/demo_home_gr1.png', fit: BoxFit.fill),
-                            ),
-                            GestureDetector(
-                              onTap: () { Get.toNamed("/CompanyScreen3" );},
-                              child: Image.asset('assets/images/demo_home_gr2.png', fit: BoxFit.fill),
-                            ),
-                            GestureDetector(
-                              onTap: () { Get.toNamed("/CompanyScreen3" );},
-                              child: Image.asset('assets/images/demo_home_gr3.png', fit: BoxFit.fill),
-                            ),
-                      ],
+                  child: _widgetOptions.elementAt(_selectedIndex),
                   ),
-                ),
+                // 추가적인 위젯들을 여기에 추가할 수 있습니다.
               ],
             ),
           ),

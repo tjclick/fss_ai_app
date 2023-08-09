@@ -8,19 +8,25 @@ class HomeScreen3 extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen3> {
   int _selectedIndex = 0;
-  
+
   void _onItemTapped(int index) {
-      if (index == 0) Get.toNamed("/HomeScreen3" );
-      if (index == 1) Get.toNamed("/CompanyScreen3" );
-      if (index == 2) Get.toNamed("/DailyScreen3" );
-      if (index == 3) Get.toNamed("/VolumeScreen3" );
+    if (index == 0) Get.toNamed("/HomeScreen3");
+    if (index == 1) Get.toNamed("/CompanyScreen3");
+    if (index == 2) Get.toNamed("/DailyScreen3");
+    if (index == 3) Get.toNamed("/VolumeScreen3");
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GOOD.AI', style: TextStyle(color: Color(0xFFEDEDED), fontWeight: FontWeight.bold,),),
+        title: Text(
+          'GOOD.AI',
+          style: TextStyle(
+            color: Color(0xFFEDEDED),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -37,24 +43,35 @@ class _HomeScreenState extends State<HomeScreen3> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Container(
-                // child: Image.asset(imagePath, fit: BoxFit.fill),
+                  // child: Image.asset(imagePath, fit: BoxFit.fill),
                   child: Column(
-                      children: [
-                            GestureDetector(
-                              onTap: () { Get.toNamed("/CompanyScreen3" );},
-                              child: Image.asset('assets/images/demo_home_gr1.png', fit: BoxFit.fill),
-                            ),
-                            GestureDetector(
-                              onTap: () { Get.toNamed("/CompanyScreen3" );},
-                              child: Image.asset('assets/images/demo_home_gr2.png', fit: BoxFit.fill),
-                            ),
-                            GestureDetector(
-                              onTap: () { Get.toNamed("/CompanyScreen3" );},
-                              child: Image.asset('assets/images/demo_home_gr3.png', fit: BoxFit.fill),
-                            ),
-                      ],
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed("/HomeScreen3Sub1");
+                        },
+                        child: Image.asset('assets/images/demo_home_gr1.png',
+                            fit: BoxFit.fill),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed("/CompanyScreen3");
+                        },
+                        child: Image.asset('assets/images/demo_home_gr2.png',
+                            fit: BoxFit.fill),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed("/CompanyScreen3");
+                        },
+                        child: Image.asset('assets/images/demo_home_gr3.png',
+                            fit: BoxFit.fill),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -62,7 +79,6 @@ class _HomeScreenState extends State<HomeScreen3> {
           ),
         ],
       ),
-
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(

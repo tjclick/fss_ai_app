@@ -3,7 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fss_ai_app/data/repository/board_repository_impl.dart';
 import 'package:fss_ai_app/data/source/remote/board_api.dart';
+import 'package:fss_ai_app/demo/CompanyScreen3.dart';
+import 'package:fss_ai_app/demo/DailyScreen3.dart';
 import 'package:fss_ai_app/demo/HomeScreen3.dart';
+import 'package:fss_ai_app/demo/HomeScreen3Sub1.dart';
+import 'package:fss_ai_app/demo/VolumeScreen3.dart';
 import 'package:fss_ai_app/lib_color_schemes.g.dart';
 import 'package:fss_ai_app/presentation/home_view_model.dart';
 import 'package:get/get.dart';
@@ -41,6 +45,10 @@ class MyApp extends StatelessWidget {
       getPages: [
         // # DEMO
         GetPage(name: "/", page: () => HomeScreen3()),
+        GetPage(name: "/CompanyScreen3", page: () => CompanyScreen3()),
+        GetPage(name: "/DailyScreen3", page: () => DailyScreen3()),
+        GetPage(name: "/VolumeScreen3", page: () => VolumeScreen3()),
+        GetPage(name: "/HomeSub1", page: () => HomeScreen3Sub1()),
         // # API Test
         //GetPage(name: "/", page: () => HomeScreen()),
         //GetPage(name: "/drivers", page: () => ReturnPvc()),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeScreen3 extends StatefulWidget {
+class CompanyScreen3 extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _CompanyScreenState createState() => _CompanyScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen3> {
-  int _selectedIndex = 0;
+class _CompanyScreenState extends State<CompanyScreen3> {
+  int _selectedIndex = Get.arguments['IDX'];
   
   static List<Widget> _widgetOptions = <Widget>[
     _buildImage('home'),
@@ -23,15 +23,15 @@ class _HomeScreenState extends State<HomeScreen3> {
       child: Column(
           children: [
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 2, "NEXT_PAGE": ""});},
                   child: Image.asset('assets/images/demo_${imagePath}_gr1.png', fit: BoxFit.fill),
                 ),
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 2, "NEXT_PAGE": "/DailyScreen3"});},
                   child: Image.asset('assets/images/demo_${imagePath}_gr2.png', fit: BoxFit.fill),
                 ),
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 2, "NEXT_PAGE": "/DailyScreen3"});},
                   child: Image.asset('assets/images/demo_${imagePath}_gr3.png', fit: BoxFit.fill),
                 ),
 

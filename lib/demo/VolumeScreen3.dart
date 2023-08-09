@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeScreen3 extends StatefulWidget {
+class VolumeScreen3 extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _VolumeScreenState createState() => _VolumeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen3> {
-  int _selectedIndex = 0;
+class _VolumeScreenState extends State<VolumeScreen3> {
+  int _selectedIndex = 3;
   
   static List<Widget> _widgetOptions = <Widget>[
     _buildImage('home'),
@@ -23,15 +23,15 @@ class _HomeScreenState extends State<HomeScreen3> {
       child: Column(
           children: [
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { Get.toNamed("/", arguments: {"EVENT_TAP": "${imagePath}"});},
                   child: Image.asset('assets/images/demo_${imagePath}_gr1.png', fit: BoxFit.fill),
                 ),
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { Get.toNamed("/", arguments: {"EVENT_TAP": "${imagePath}"});},
                   child: Image.asset('assets/images/demo_${imagePath}_gr2.png', fit: BoxFit.fill),
                 ),
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { Get.toNamed("/", arguments: {"EVENT_TAP": "${imagePath}"});},
                   child: Image.asset('assets/images/demo_${imagePath}_gr3.png', fit: BoxFit.fill),
                 ),
 
@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen3> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GOOD.AI', style: TextStyle(color: Color(0xFFEDEDED), fontWeight: FontWeight.bold,),),
+        title: Text('GOOD.AI', style: TextStyle(color: Color(0xFFEDEDED),),),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),

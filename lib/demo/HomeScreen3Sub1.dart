@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeScreen3 extends StatefulWidget {
+class HomeScreen3Sub1 extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeScreen3Sub1State createState() => _HomeScreen3Sub1State();
 }
 
-class _HomeScreenState extends State<HomeScreen3> {
+class _HomeScreen3Sub1State extends State<HomeScreen3Sub1> {
   int _selectedIndex = 0;
-  
+
   static List<Widget> _widgetOptions = <Widget>[
     _buildImage('home'),
     _buildImage('company'),
     _buildImage('daily'),
     _buildImage('volume'),
   ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
 
   static Widget _buildImage(String imagePath) {
@@ -23,15 +29,21 @@ class _HomeScreenState extends State<HomeScreen3> {
       child: Column(
           children: [
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { print('${imagePath} event gr1 '); 
+                        Get.toNamed("/HomeSub1", arguments: {"EVENT_TAP": "${imagePath}"});
+                  },
                   child: Image.asset('assets/images/demo_${imagePath}_gr1.png', fit: BoxFit.fill),
                 ),
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { print('${imagePath} event gr2 ');  
+                      Get.toNamed("/HomeSub1", arguments: {"EVENT_TAP": "${imagePath}"});
+                  },
                   child: Image.asset('assets/images/demo_${imagePath}_gr2.png', fit: BoxFit.fill),
                 ),
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { print('${imagePath} event gr3 ');  
+                      Get.toNamed("/HomeSub1", arguments: {"EVENT_TAP": "${imagePath}"});
+                  },
                   child: Image.asset('assets/images/demo_${imagePath}_gr3.png', fit: BoxFit.fill),
                 ),
 
@@ -40,17 +52,26 @@ class _HomeScreenState extends State<HomeScreen3> {
     );
   }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+
+  
+  @override
+  void initState() {
+    super.initState();
+    if (Get.arguments["EVENT_TAP"] != null) {
+      if (Get.arguments["EVENT_TAP"] == "home")    _selectedIndex = 1;
+      if (Get.arguments["EVENT_TAP"] == "company") _selectedIndex = 2;
+      if (Get.arguments["EVENT_TAP"] == "daily")   _selectedIndex = 3;
+      if (Get.arguments["EVENT_TAP"] == "volume")  _selectedIndex = 0;
+    } else {
+      _selectedIndex = 0;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GOOD.AI', style: TextStyle(color: Color(0xFFEDEDED), fontWeight: FontWeight.bold,),),
+        title: Text('GOOD.AI', style: TextStyle(color: Color(0xFFEDEDED),),),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -83,6 +104,7 @@ class _HomeScreenState extends State<HomeScreen3> {
             icon: Icon(Icons.home),
             label: 'Home',
             backgroundColor: Color(0xFF292929),
+            
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.analytics),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeScreen3 extends StatefulWidget {
+class DailyScreen3 extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _DailyScreenState createState() => _DailyScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen3> {
-  int _selectedIndex = 0;
+class _DailyScreenState extends State<DailyScreen3> {
+  int _selectedIndex = 2;
   
   static List<Widget> _widgetOptions = <Widget>[
     _buildImage('home'),
@@ -23,15 +23,15 @@ class _HomeScreenState extends State<HomeScreen3> {
       child: Column(
           children: [
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 2, "NEXT_PAGE": "/DailyScreen3"});},
                   child: Image.asset('assets/images/demo_${imagePath}_gr1.png', fit: BoxFit.fill),
                 ),
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 2, "NEXT_PAGE": "/DailyScreen3"});},
                   child: Image.asset('assets/images/demo_${imagePath}_gr2.png', fit: BoxFit.fill),
                 ),
                 GestureDetector(
-                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 1, "NEXT_PAGE": "/CompanyScreen3"});},
+                  onTap: () { Get.toNamed("${Get.arguments['NEXT_PAGE']}", arguments: {"IDX": 2, "NEXT_PAGE": "/DailyScreen3"});},
                   child: Image.asset('assets/images/demo_${imagePath}_gr3.png', fit: BoxFit.fill),
                 ),
 
@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen3> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GOOD.AI', style: TextStyle(color: Color(0xFFEDEDED), fontWeight: FontWeight.bold,),),
+        title: Text('GOOD.AI', style: TextStyle(color: Color(0xFFEDEDED),),),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),

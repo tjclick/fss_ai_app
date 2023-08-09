@@ -12,31 +12,35 @@ class _VolumeScreenState extends State<VolumeScreen3> {
   bool _isExpanded2 = true;
 
   void _onItemTapped(int index) {
-      if (index == 0) Get.toNamed("/HomeScreen3" );
-      if (index == 1) Get.toNamed("/CompanyScreen3" );
-      if (index == 2) Get.toNamed("/DailyScreen3" );
-      if (index == 3) Get.toNamed("/VolumeScreen3" );
+    if (index == 0) Get.toNamed("/HomeScreen3");
+    if (index == 1) Get.toNamed("/CompanyScreen3");
+    if (index == 2) Get.toNamed("/DailyScreen3");
+    if (index == 3) Get.toNamed("/VolumeScreen3");
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-
         slivers: <Widget>[
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 30,
+                ),
                 Container(
-                // child: Image.asset(imagePath, fit: BoxFit.fill),
+                  // child: Image.asset(imagePath, fit: BoxFit.fill),
                   child: Column(
-                      children: [
-                            GestureDetector(
-                              onTap: () { Get.toNamed("/" );},
-                              child: Image.asset('assets/images/demo_volume_gr1.png', fit: BoxFit.fill),
-                            ),
-                      ],
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed("/");
+                        },
+                        child: Image.asset('assets/images/demo_volume_gr1.png',
+                            fit: BoxFit.fill),
+                      ),
+                    ],
                   ),
                 ),
                 // 추가적인 위젯들을 여기에 추가할 수 있습니다.
@@ -46,12 +50,15 @@ class _VolumeScreenState extends State<VolumeScreen3> {
                   // ExpansionTile의 배경색 지정
                   //color: Color.fromARGB(255, 29, 29, 29), // 원하는 색상으로 변경 가능
                   child: ExpansionTile(
-                    title: Text(
-                      '모비어스 012345',
-                      style: TextStyle(
-                        color: Color(0xffededed),
-                        fontWeight: FontWeight.bold, // bold 스타일 적용
-                        fontSize: 14, // 글꼴 크기 14
+                    title: Padding(
+                      padding: EdgeInsets.all(20.0), // 원하는 패딩 값을 설정합니다.
+                      child: Text(
+                        '모비어스 012345',
+                        style: TextStyle(
+                          color: Color(0xffededed),
+                          fontWeight: FontWeight.bold, // bold 스타일 적용
+                          fontSize: 14, // 글꼴 크기 14
+                        ),
                       ),
                     ),
                     onExpansionChanged: (expanded) {
@@ -63,7 +70,8 @@ class _VolumeScreenState extends State<VolumeScreen3> {
                       _isExpanded1
                           ? Container(
                               //color: Colors.blue,
-                              child: Image.asset('assets/images/expand_data.png',
+                              child: Image.asset(
+                                  'assets/images/volume_gr2_s1.png',
                                   fit: BoxFit.fill), // 이미지 경로를 적절히 수정해주세요.
                             )
                           : SizedBox.shrink(), // 내용이 닫혔을 때는 빈 컨테이너로 처리
@@ -74,12 +82,15 @@ class _VolumeScreenState extends State<VolumeScreen3> {
                   // ExpansionTile의 배경색 지정
                   //color: Color.fromARGB(255, 29, 29, 29), // 원하는 색상으로 변경 가능
                   child: ExpansionTile(
-                    title: Text(
-                      '밸류체인 678901',
-                      style: TextStyle(
-                        color: Color(0xffededed),
-                        fontWeight: FontWeight.bold, // bold 스타일 적용
-                        fontSize: 14, // 글꼴 크기 14
+                    title: Padding(
+                      padding: EdgeInsets.all(20.0), // 원하는 패딩 값을 설정합니다.
+                      child: Text(
+                        '밸류체인 012345',
+                        style: TextStyle(
+                          color: Color(0xffededed),
+                          fontWeight: FontWeight.bold, // bold 스타일 적용
+                          fontSize: 14, // 글꼴 크기 14
+                        ),
                       ),
                     ),
                     onExpansionChanged: (expanded) {
@@ -91,7 +102,8 @@ class _VolumeScreenState extends State<VolumeScreen3> {
                       _isExpanded2
                           ? Container(
                               //color: Colors.blue,
-                              child: Image.asset('assets/images/expand_data.png',
+                              child: Image.asset(
+                                  'assets/images/volume_gr2_s1.png',
                                   fit: BoxFit.fill), // 이미지 경로를 적절히 수정해주세요.
                             )
                           : SizedBox.shrink(), // 내용이 닫혔을 때는 빈 컨테이너로 처리
@@ -103,7 +115,6 @@ class _VolumeScreenState extends State<VolumeScreen3> {
           ),
         ],
       ),
-
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
